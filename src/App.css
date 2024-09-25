@@ -293,3 +293,30 @@
   background-color: #e2e2e2;
   border-radius: 5px;
 }
+/* Estilos para el botón de Pagar */
+.btn-pay {
+  background-color: #28a745; /* Verde oscuro */
+  color: white; /* Texto blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 1.2rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+  border: none; /* Sin bordes */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Mostrar cursor de puntero */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Cambiar el color y la sombra al pasar el ratón */
+.btn-pay:hover {
+  background-color: #218838; /* Verde más oscuro en hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+}
+
+/* Botón deshabilitado */
+.btn-pay:disabled {
+  background-color: #6c757d; /* Color gris para deshabilitado */
+  cursor: not-allowed; /* Cursor de no permitido */
+  opacity: 0.6; /* Reducir opacidad */
+  box-shadow: none; /* Sin sombra */
+}

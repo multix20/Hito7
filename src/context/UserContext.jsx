@@ -1,20 +1,17 @@
 import { createContext, useState } from 'react';
 
-// Crea el contexto
 export const UserContext = createContext();
 
-// Proveedor del contexto
 export const UserProvider = ({ children }) => {
-  // Estado inicial del token, por defecto en true
-  const [token, setToken] = useState(true);
+  const [token, setToken] = useState(true); // Control del token
+  const [username, setUsername] = useState("Juan"); // Ejemplo de nombre de usuario
 
-  // Función para hacer logout y cambiar el estado del token
   const logout = () => {
     setToken(false);
   };
 
   return (
-    <UserContext.Provider value={{ token, logout }}>
+    <UserContext.Provider value={{ token, username, logout }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { UserContext } from '../context/UserContext'; // Importar el UserContext
 
 const Cart = () => {
     const { cart, addToCart, removeFromCart, getTotal } = useContext(CartContext);
-
-    console.log(cart); // Verifica si el estado del carrito se está cargando
+    const { token } = useContext(UserContext); // Obtener el token desde UserContext
 
     // Función para incrementar la cantidad de un producto en el carrito
     const incrementQuantity = (pizza) => {
@@ -46,6 +46,18 @@ const Cart = () => {
                         </div>
                     ))}
                     <h3>Total: ${getTotal().toFixed(2)}</h3>
+                    
+                    {/* Botón de pagar que se deshabilita si el token es false */}
+                    <button 
+                        className="btn-pay"  // Cambiar la clase del botón a btn-pay
+                        onClick={() => alert('Procediendo al pago')} 
+                        disabled={!token}  // Deshabilitar si el token es false
+                    >
+                        Pagar
+                    </button>
+
+                    {/* Mensaje si el botón está deshabilitado */}
+                    {!token && <p style={{ color: 'red' }}>Inicia sesión para poder realizar el pago.</p>}
                 </div>
             )}
         </div>
